@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import gsap from "gsap";
 
 
 const line1 = [
@@ -549,6 +550,33 @@ const ReviewCard = ({ item, index }) => (
 
 // MobileReviewSection component using the provided cards XML
 const MobileReviewSection = () => {
+  const cardsline1Ref = useRef(null);
+
+  useEffect(() => {
+    // Height of one card + gap (space-y-3 = 0.75rem = 12px)
+    const cardHeight = 280;
+    const gap = 12;
+    const cardsInSet = 7;
+    const totalMove = (cardHeight + gap) * cardsInSet;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        cardsline1Ref.current,
+        { y: 0 },
+        {
+          y: -totalMove,
+          duration: 16,
+          ease: "none",
+          repeat: -1,
+          modifiers: {
+            y: gsap.utils.unitize(y => parseFloat(y) % -totalMove)
+          }
+        }
+      );
+    }, cardsline1Ref);
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section className="w-full max-w-full overflow-hidden relative section-fade-mask" style={{height: '100vh', border :'none' , background: '#d3d3d3'}}>
       {/* Fade overlay for top and bottom blending */}
@@ -588,12 +616,16 @@ const MobileReviewSection = () => {
             );
           })}
         </svg>
-        
         {/* Column 1 - Shoes */}
-        <div className="flex flex-col space-y-3 cardsline1  ">
-          {[...line1, ...line1].map((item, index) => (
-            <ReviewCard key={`shoes-${index}`} item={item} index={index} />
-          ))}
+        <div style={{ height: `${(280 + 12) * 7 - 12}px`, width: '180px', overflow: 'hidden', position: 'relative' }}>
+          <div
+            className="flex flex-col space-y-3 cardsline1"
+            ref={cardsline1Ref}
+          >
+            {[...line1, ...line1].map((item, index) => (
+              <ReviewCard key={`shoes-${index}`} item={item} index={index} />
+            ))}
+          </div>
         </div>
         {/* Column 2 - Hijabs */}
         <div className="flex flex-col space-y-3 cardsline2 ">
