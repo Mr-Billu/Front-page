@@ -63,23 +63,23 @@ h1, h2, h3, h4, h5, h6 {
 
   .cardsline1 {
     transform: rotate(40deg) translate(-650%, 0);
-    animation: cardsline1-move 80s linear infinite;
+    animation: cardsline1-move 90s linear infinite;
     
   }
   
   .cardsline2 {
     transform: rotate(40deg) translate(-390%, -74%);
-    animation: cardsline2-move 150s ease-in-out infinite; 
+    animation: cardsline2-move 130s ease-in-out infinite; 
   }
   
   .cardsline3 {
     transform: rotate(40deg) translate(-370%, 15%);
-    animation: cardsline3-move 150s ease-in-out infinite;
+    animation: cardsline3-move 130s ease-in-out infinite;
   }
   
   .cardsline4 {
     transform: rotate(40deg) translate(-843%, -3000px);
-    animation: cardsline4-move 80s linear infinite;
+    animation: cardsline4-move 90s linear infinite;
   }
  
 
