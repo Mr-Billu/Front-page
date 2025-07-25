@@ -550,10 +550,10 @@ const MobileReviewSection = () => {
   return (
     <section className="w-full max-w-full overflow-hidden relative" style={{height: '100vh', border :'none' , background: '#FFF1E1'}}>
       {/* Gradient overlays for fade effect */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-[#FFF1E1] z-30"></div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#FFF1E1] z-30"></div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#FFF1E1] z-30"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#FFF1E1] z-30"></div>
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-[#fff] z-30"></div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#fff] z-30"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#fff] z-30"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#fff] z-30"></div>
       <div className="flex justify-center items-start h-full relative z-10" style={{background:  '#FFF1E1' , position: 'relative', overflow: 'hidden'}}>
         {/* Curved lines SVG background */}
         <svg
