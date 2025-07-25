@@ -12,7 +12,7 @@ import { MobileReviewSection } from "./components/Reviews";
 
 const Home: FC = () => {
   return (
-    <div className="bg-white min-h-screen  ">
+    <div className="bg-[#f8f8f5] min-h-screen  ">
       <Header />
       <main className="flex flex-col row-start-2 items-center sm:items-start mt-17 max-w-8xl mx-auto  ">
         <Hero />

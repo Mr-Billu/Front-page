@@ -491,14 +491,12 @@ const line4 = [
 
 
 
-
-
 // ReviewCard component for rendering a single review card
 const ReviewCard = ({ item, index }) => (
   <div
     className="bg-white rounded-2xl flex gap-2 flex-col p-3 sm:p-4 border border-blue-50 text-left"
     style={{
-      height: '280px',
+      
       fontFamily: "var(--font-body)",
       width: "180px",
       maxWidth: "220px",
@@ -550,19 +548,13 @@ const ReviewCard = ({ item, index }) => (
 // MobileReviewSection component using the provided cards XML
 const MobileReviewSection = () => {
   return (
-    <section className="w-full max-w-full overflow-hidden relative section-fade-mask" style={{height: '100vh', border :'none' , background: '#d3d3d3'}}>
-      {/* Fade overlay for top and bottom blending */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        pointerEvents: 'none',
-        zIndex: 20,
-        background: 'linear-gradient(to bottom, #f0f9ff 0%, rgba(240,249,255,0.7) 8%, rgba(255,255,255,0) 18%, rgba(255,255,255,0) 82%, rgba(240,249,255,0.7) 92%, #f0f9ff 100%)',
-      }} />
-      <div className="flex justify-center items-start h-full relative z-10" style={{background:  '#d3d3d3' , position: 'relative', overflow: 'hidden'}}>
+    <section className="w-full max-w-full overflow-hidden relative" style={{height: '100vh', border :'none' , background: '#FFF1E1'}}>
+      {/* Gradient overlays for fade effect */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-[#FFF1E1] z-30"></div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#FFF1E1] z-30"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#FFF1E1] z-30"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#FFF1E1] z-30"></div>
+      <div className="flex justify-center items-start h-full relative z-10" style={{background:  '#FFF1E1' , position: 'relative', overflow: 'hidden'}}>
         {/* Curved lines SVG background */}
         <svg
           className="absolute inset-0 w-full h-full z-0 pointer-events-none"
@@ -608,11 +600,12 @@ const MobileReviewSection = () => {
         </div>
         {/* Column 4 - Watches */}
         <div className="flex flex-col space-y-3  cardsline4 ">
-          {line4.map((item, index) => (
-            <ReviewCard key={`watch-${index}`} item={item} index={index} />
-          ))}
+          {/* Duplicate line4 like the 1st column, and move it downward */}
+            {[...line4, ...line4].map((item, index) => (
+              <ReviewCard key={`watch-${index}`} item={item} index={index} />
+            ))}
+          </div>
         </div>
-      </div>
     </section>
   );
 };
