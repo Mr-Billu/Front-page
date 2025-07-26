@@ -62,24 +62,24 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (min-width:320px) and (max-width: 768px) {
 
   .cardsline1 {
-    transform: rotate(40deg) translate(-650%, 0);
-    animation: cardsline1-move 90s linear infinite;
+    transform:  translate(0,0);
+    animation: cardsline1-move 60s linear infinite;
     
   }
   
   .cardsline2 {
-    transform: rotate(40deg) translate(-390%, -74%);
-    animation: cardsline2-move 130s ease-in-out infinite; 
+    transform:  translate(0, 0);
+    animation: cardsline2-move 60s linear infinite; 
   }
   
   .cardsline3 {
-    transform: rotate(40deg) translate(-370%, 15%);
-    animation: cardsline3-move 130s ease-in-out infinite;
+    transform:  translate(0, 0);
+    animation: cardsline3-move 60s linear infinite  ;  
   }
   
   .cardsline4 {
-    transform: rotate(40deg) translate(-843%, -3000px);
-    animation: cardsline4-move 90s linear infinite;
+    transform: translate(0, 0);
+    animation: cardsline4-move 60s linear infinite;
   }
  
 
@@ -88,8 +88,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* for 1st line */
 @keyframes cardsline1-move {
+  from{
+    transform: translate(0,0);
+  }
   to {
-    transform: rotate(40deg) translate(-650%, -2110px);
+    transform:  translate(0, -50%); 
   }
 }
 
@@ -97,13 +100,13 @@ h1, h2, h3, h4, h5, h6 {
 /* for 2nd line */
 @keyframes cardsline2-move {
   0% {
-    transform: rotate(40deg) translate(-390%, -73%);
+    transform: translateY(-40%);
   }
   50% {
-      transform: rotate(40deg) translate(-390%, 6%);
+    transform: translateY(0);
   }
-  100% {
-    transform: rotate(40deg) translate(-390%, -73%);
+  100% {  
+    transform: translateY(-40%);
   }
 }
 
@@ -114,30 +117,27 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes cardsline3-move {
   0% {
-    transform: rotate(40deg) translate(-350%, 15%);
+    transform: translateY(0);
   }
   50% {
-    transform: rotate(40deg) translate(-350%, -61%);
+    transform: translateY(-40%);
   }
   100% {
-    transform: rotate(40deg) translate(-350%, 15%);
+    transform: translateY(0);
   }
+  
 }
 
 
 
 @keyframes cardsline4-move {
+  from{
+    transform: translate(0, 0);
+  }
   to {
-    transform: rotate(40deg) translate(-843%, -92px);
+    transform: translate(0, 50%);
   }
 }
 
 
 
-
-/* 
-  The original mask-composite and -webkit-mask-composite values can cause inconsistent blending between the two gradients,
-  leading to the fade sometimes being more pronounced on the right or top, depending on browser implementation.
-  To ensure a consistent, even fade on all sides, use 'add' (or 'destination-in' for -webkit) so both gradients combine their alpha.
-  This will create a uniform fade on all edges.
-*/

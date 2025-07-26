@@ -1,5 +1,6 @@
 "use client";
 
+import { Item } from "@radix-ui/themes/dist/cjs/components/checkbox-group.primitive";
 import React from "react";
 
 
@@ -494,7 +495,7 @@ const line4 = [
 // ReviewCard component for rendering a single review card
 const ReviewCard = ({ item, index }) => (
   <div
-    className="bg-white rounded-2xl flex gap-2 flex-col p-3 sm:p-4 border border-blue-50 text-left"
+    className="bg-white rounded-2xl flex gap-2 flex-col p-3 sm:p-4 border border-blue-50 text-left flex-shrink-0"
     style={{
       
       fontFamily: "var(--font-body)",
@@ -581,28 +582,40 @@ const MobileReviewSection = () => {
           })}
         </svg>
         {/* Column 1 - Shoes */}
-        <div className="flex flex-col space-y-3 cardsline1  ">
-          {[...line1, ...line1].map((item, index) => (
-            <ReviewCard key={`shoes-${index}`} item={item} index={index} />
+        <div className="flex flex-col space-y-3 cardsline1 absolute top-0 left-4 origin-top-left rotate-40
+        style={{height: 'max-content'}} ">
+          {line1.map((item, index) => (
+                  <ReviewCard key={`shoes-${index}`} item={item} index={index} />
+          ))}
+          {line1.map((DuplicatedItem, duplicateIndex) => (
+              <ReviewCard key={`shoes-${duplicateIndex}`} item={DuplicatedItem} index={duplicateIndex} />
           ))}
         </div>
         {/* Column 2 - Hijabs */}
-        <div className="flex flex-col space-y-3 cardsline2 ">
+        <div className="flex flex-col space-y-3 cardsline2 absolute top-1/2 left-1/2-translate-x-1/2 -translate-y-1/2 ml-[-235px] origin-center rotate-[40deg]
+        style={{height: 'max-content'}} ">
           {line2.map((item, index) => (
             <ReviewCard key={`hijab-${index}`} item={item} index={index} />
           ))}
         </div>
         {/* Column 3 - Hoodies */}
-        <div className="flex flex-col space-y-3 cardsline3 ">
+        <div className="flex flex-col space-y-3 cardsline3 absolute top-1/3 left-1/3-translate-x-1/3 -translate-y-1/3 ml-[-320px] origin-center rotate-[40deg]
+        style={{height: 'max-content'}} ">
           {line3.map((item, index) => (
             <ReviewCard key={`hoodie-${index}`} item={item} index={index} />
           ))}
         </div>
+
         {/* Column 4 - Watches */}
-        <div className="flex flex-col space-y-3  cardsline4 ">
+        <div className="flex flex-col space-y-3  cardsline4 absolute bottom-0 right-0 origin-bottom-right rotate-40
+        style={{height: 'max-content'}} ">
           {/* Duplicate line4 like the 1st column, and move it downward */}
-            {[...line4, ...line4].map((item, index) => (
+            {line4.map((item, index) => (
               <ReviewCard key={`watch-${index}`} item={item} index={index} />
+            ))}
+
+            {line4.map((DuplicatedItem, duplicateIndex) => (
+              <ReviewCard key={`watch-${duplicateIndex}`} item={DuplicatedItem} index={duplicateIndex} />
             ))}
           </div>
         </div>
@@ -611,4 +624,3 @@ const MobileReviewSection = () => {
 };
 
 export { MobileReviewSection };
-
