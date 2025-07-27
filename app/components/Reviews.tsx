@@ -495,12 +495,10 @@ const line4 = [
 // ReviewCard component for rendering a single review card
 const ReviewCard = ({ item, index }) => (
   <div
-    className="bg-white rounded-2xl flex gap-2 flex-col p-3 sm:p-4 border border-blue-50 text-left flex-shrink-0"
+    className="bg-white rounded-2xl flex gap-2 flex-col p-3 sm:p-4 border border-blue-50 text-left flex-shrink-0 review-card-responsive"
     style={{
       
       fontFamily: "var(--font-body)",
-      width: "180px",
-      maxWidth: "220px",
       boxShadow: "none",
     }}
   >
